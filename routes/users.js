@@ -8,7 +8,8 @@ const { validarJwt } = require('../middlewares/validar-jwt');
 const router = Router();
 
 router.get('/',[
-    validarJwt
+    validarJwt,
+    validarCampos
 ],
 usersGet);
 

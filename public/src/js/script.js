@@ -1,29 +1,38 @@
-const url = "https://pointh3.herokuapp.com/api/";
-//const url = "http://localhost:8080/api/"
+//const url = "https://pointh3.herokuapp.com/api/";
+const url = "http://localhost:3000/api/"
 
+
+//LOG IN
 const loginContainer = document.getElementById('loginContainer');
-//const nameInput = document.getElementById("nameInput");
-const mailInput = document.getElementById("mailInput")
-const passwordInput = document.getElementById("passwordInput");
-const btnInput = document.getElementById("btnInput");
+const loginMailInput = document.getElementById("loginMailInput")
+const loginPasswordInput = document.getElementById("loginPasswordInput");
+const loginBtnInput = document.getElementById("loginBtnInput");
 
+const loginToRegister = document.getElementById('loginToRegister');
+
+// REGISTER
+const registerContainer = document.getElementById('registerContainer');
+const registerMailInput = document.getElementById("registerMailInput")
+const registerPasswordInput = document.getElementById("registerPasswordInput");
+const registerBtnInput = document.getElementById("registerBtnInput");
+
+const registerToLogin = document.getElementById('registerToRegister');
+
+// INFO
 const userInfoContainer = document.getElementById('userInfoContainer');
 const userInfo = document.getElementById('userInfo');
-
-const users = document.querySelector('.usuarios');
-const container = document.getElementById("container");
 
 window.onload = () => {
     console.log('Ready!');
 };
 
 const loginUser = async () => {
-    const data = await fetch(url+'auth/login', {
+    const data = await fetch(url+'auth', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            mail: mailInput.value,
-            password: passwordInput.value
+            mail: loginMailInput.value,
+            password: loginPasswordInput.value
         })
     }).then(el=>el.json());
     if(data.errors)return alert(data.errors[0].msg);
@@ -36,5 +45,12 @@ const loginUser = async () => {
     `
 };
 
-btnInput.addEventListener('click', ()=>{loginUser()});
+const loginRegister = ()=>{
+    registerContainer.classList.toggle('d-none');
+    loginContainer.classList.toggle('d-none');
+};
 
+//click
+loginBtnInput.addEventListener('click', ()=>{loginUser()});
+loginToRegister.addEventListener('click', loginRegister);
+registerToLogin.addEventListener('click', loginRegister);

@@ -21,22 +21,51 @@
 
 <body class="bg-dark" style="color: white;">
 
-    
-    <div class="d-flex justify-content-center mt-5" id="loginContainer">
+
+
+    <div id="registerContainer" class="d-flex justify-content-center mt-5" >
         <div>
             <div>
-                <h3 class="text-center">Login</h3>
+                <h3 class="text-center">Sing In</h3>
                 <!-- <input class="text-center" type="text" placeholder="Nombre" id="nameInput" required> <br> -->
-                <input class="text-center mt-1" type="text" placeholder="Correo" id="mailInput" required> <br>
-                <input class="text-center mt-1" type="password" placeholder="Contraseña" id="passwordInput" required> <br>
-                <button class="btn btn-primary btn-block mt-1" id="btnInput" style="width: 100%;">Ingresar</button>
+                <input class="text-center mt-1" placeholder="Nombre" id="registerNameInput"> <br>
+                <input class="text-center mt-1" type="text" placeholder="Correo" id="registerMailInput" required> <br>
+                <input class="text-center mt-1" type="password" placeholder="Contraseña" id="registerPasswordInput" required> <br>
+                <div class="d-flex justify-content-between mt-1">
+                    <button id="registerToRegister" class="btn btn-secondary" style="width: 49%;">Log In</button>
+                    <button id="registerBtnInput" class="btn btn-primary" style="width: 49%;">Sing In</button>
+                </div>
             </div>
         </div>
-        
     </div>
+    
+
+
+
+
+    
+    <div id="loginContainer" class="d-flex justify-content-center mt-5 d-none" >
+        <div>
+            <div>
+                <h3 class="text-center">Log In</h3>
+                <!-- <input class="text-center" type="text" placeholder="Nombre" id="nameInput" required> <br> -->
+                <input class="text-center mt-1" type="text" placeholder="Correo" id="loginMailInput" required> <br>
+                <input class="text-center mt-1" type="password" placeholder="Contraseña" id="loginPasswordInput" required> <br>
+                <div class="d-flex justify-content-between mt-1">
+                    <button id="loginToRegister" class="btn btn-secondary" style="width: 49%;">Sing In</button>
+                    <button id="loginBtnInput" class="btn btn-primary" style="width: 49%;">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
     <hr>
     
-    
+
     <div class="d-none" id="userInfoContainer">
         <div class="p-2" id="userInfo">
             <h3>Nombre</h3>
@@ -45,7 +74,7 @@
         <hr>
     </div>
 
-    <div class="m-2 d-none" id="usuarios">
+    <!-- <div class="m-2 d-none" id="usuarios">
         <ul class="list-group" >
             <li class="list-group-item active" aria-current="true">Usuarios </li>
             <li class="list-group-item text-danger">Nombre & Contacto</li>     
@@ -54,7 +83,7 @@
             </div>
         </ul>
         <hr>
-    </div>
+    </div> -->
 
 
     <footer class="text-center">
