@@ -1,6 +1,8 @@
 const url = "https://pointh3.herokuapp.com/api/";
 //const url = "http://localhost:3000/api/"
 
+//asd
+
 
 //LOG IN
 const loginContainer = document.getElementById('loginContainer');
