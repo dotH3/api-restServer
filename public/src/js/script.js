@@ -1,5 +1,5 @@
-//const url = "https://pointh3.herokuapp.com/api/";
-const url = "http://localhost:3000/api/"
+const url = "https://pointh3.herokuapp.com/api/";
+//const url = "http://localhost:3000/api/"
 
 
 //LOG IN
