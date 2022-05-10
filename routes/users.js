@@ -14,7 +14,7 @@ router.get('/',[
 usersGet);
 
 router.post('/',[
-    validarJwt,
+    //validarJwt,
     check('name','El nombre es obligatorio (MIN:3 MAX:20)').not().isEmpty().isLength({min:3}).isLength({max:20}),
     check('mail','El email es invalido').isEmail(),
     check('mail').custom(existMail),
