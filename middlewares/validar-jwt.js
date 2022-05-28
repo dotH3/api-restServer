@@ -4,12 +4,7 @@ const User = require("../models/user");
 
 const validarJwt = async(req, res = response, next)=>{
     const token = req.header('x-token')
-    
-    if(!token){
-        return res.status(401).json({
-            msg:"No hay toquen de autorizacion"
-        })
-    }
+    if(!token){return res.status(401).json({msg:"No hay toquen de autorizacion"})}
 
     try {
         const {uid} = jwt.verify(token,process.env.SECRETORPRIVATEKEY)
@@ -32,10 +27,9 @@ const validarJwt = async(req, res = response, next)=>{
 
         req.user = user;
         next();
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
         return res.status(401).json({
-            error
+            err
         })
     }
 

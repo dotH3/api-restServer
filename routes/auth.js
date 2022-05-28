@@ -11,9 +11,4 @@ router.post('/',[
     validarCampos
 ],login)
 
-// router.post('/google',[
-//     check('id_token','El id_token es necesario').not().isEmpty(),
-//     validarCampos
-// ],googleSignIn)
-
 module.exports = router

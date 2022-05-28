@@ -11,9 +11,7 @@ const login = async (req, res = response) => {
     try {
         //Verificar si el mail existe
         const user = await User.findOne({ mail })
-        
-        //Check mail
-        if (!user)return res.status(400).json({errors:[{msg:"Mail o Contraseña no validos"}]})
+        if (!user)return res.status(400).json({errors:[{msg:"El mail no existe"}]})
 
         //Si el usuario esta activo
         if (!user.status) {
@@ -25,22 +23,15 @@ const login = async (req, res = response) => {
         // check password
         if(password!=user.password)return res.status(400).json({errors:[{msg:"Mail o Contraseña no validos"}]})
 
-
         //Generar el JWT
         const token = await createJwt(user.id);
-
-        //RES:
         res.json({
             user,
             token
         })
 
-    } catch (error) {
-        console.log(error);
-
-        return res.status(500).json({
-            msg: `Error: ${error}`
-        })
+    } catch (err) {
+        return res.status(500).json({msg: `Error: ${err}`})
     }
 }
 
