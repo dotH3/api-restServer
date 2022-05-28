@@ -1,6 +1,16 @@
 @url=http://localhost:3000/api/users
-@token=a
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjkxYzY3OTQ4MTI5MWQxZTJkYWZmOWQiLCJpYXQiOjE2NTM3MjA3MjUsImV4cCI6MTY1MzcyNDMyNX0.qHkl2Yekk997j3ZwexW2CLIVuxTPNaO106b74gnGGeY
 
-# GET
+##### GET USERS - GET  #####
 GET {{url}}/
 x-token: {{token}}
+
+##### CREATE USER - POST  #####
+POST {{url}}/
+Content-Type: application/json
+
+{
+  "name":"pointH3",
+  "mail":"p@gmail.com",
+  "password":"123"
+}

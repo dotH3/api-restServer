@@ -14,11 +14,10 @@ router.get('/',[
 usersGet);
 
 router.post('/',[
-    //validarJwt,
-    check('name','El nombre es obligatorio (MIN:3 MAX:20)').not().isEmpty().isLength({min:3}).isLength({max:20}),
+    check('name','El nombre es obligatorio').not().isEmpty(),
     check('mail','El email es invalido').isEmail(),
     check('mail').custom(existMail),
-    check('password','La contraseña debe contener al menos 3 caracteres (MIN:3 MAX:20)').isLength({min:3}).isLength({max:20}),
+    check('password','La contraseña es obligatoria').not().isEmpty(),
     validarCampos
 ],
 usersPost);
