@@ -5,9 +5,9 @@ const CommentSchema = Schema({
         type: String,
         required: [true, "El autor es obligatorio"],
     },
-    comment: {
+    content: {
         type: String,
-        required: [true, "El comentario es obligatorio"],
+        required: [true, "El contenido es obligatorio"],
     },
 });
 
