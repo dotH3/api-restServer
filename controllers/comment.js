@@ -1,18 +1,19 @@
-const { request, response } = require('express');
-const mongoose = require('mongoose')
-const Comment = require('../models/comment');
-const User = require('../models/user');
+const { request, response } = require("express");
+const Comment = require("../models/comment");
 
 const commentPost = async (req = request, res = response) => {
-    const { content, id } = req.body;
-    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(400).json({ errors: [{ msg: "El id usuario no existe" }] })
-    const user = await User.findById(id)
-    if(!user) return res.status(400).json({ errors: [{ msg: "El usuario no existe" }] })
+  const { content, authorId } = req.body;
 
-    const comment = new Comment({ content });
-    res.json({
-        "status":"todo ok"
-    })
-}
+  //Confirmacion si existe el user
+  //if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(400).json({ errors: [{ msg: "El id usuario no existe" }] })
+  //const user = await User.findById(id)
+  //if(!user) return res.status(400).json({ errors: [{ msg: "El usuario no existe" }] })
 
-module.exports = { commentPost }
+  const comment = new Comment({ content, authorId });
+  await comment.save();
+  res.json({
+    comment
+  });
+};
+
+module.exports = { commentPost };
