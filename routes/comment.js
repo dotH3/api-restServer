@@ -8,6 +8,7 @@ const router = Router();
 router.post('/',[
     validarJwt,
     check('content','El contenido es obligatorio').not().isEmpty(),
+    check('id','El id es necesario').not().isEmpty(),
     validarCampos
 ],commentPost);
 
