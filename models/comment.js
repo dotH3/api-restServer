@@ -1,19 +1,14 @@
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require("mongoose");
 
 const CommentSchema = Schema({
-    name:{
+    author: {
         type: String,
-        required:[true,'El nombre es obligatiorio'],
+        required: [true, "El autor es obligatorio"],
     },
-    comment:{
+    comment: {
         type: String,
-        required:[true,'El comentario es obligatorio']
-    }
-})
+        required: [true, "El comentario es obligatorio"],
+    },
+});
 
-
-//modifico el objeto user para que no devuelva los datos que no quiero que el usuario vea
-
-
-
-module.exports = model('Comment',CommentSchema);
+module.exports = model("Comment", CommentSchema);

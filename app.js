@@ -10,7 +10,8 @@ app.use(cors());
 
 const paths = {
     users: '/api/users',
-    auth: "/api/auth"
+    auth: "/api/auth",
+    comment: "/api/comment"
 }
 
 dbConnection();
@@ -20,6 +21,7 @@ app.use(express.static('public'));
 
 app.use(paths.users, require('./routes/users'));
 app.use(paths.auth, require('./routes/auth'));
+app.use(paths.comment, require('./routes/comment'));
 
 app.listen(port, () => {
     console.log(`SERVER ON: http://localhost:${port}/`);
