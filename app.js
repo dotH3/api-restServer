@@ -21,8 +21,8 @@ app.use(express.static('public'));
 
 app.use(paths.users, require('./routes/users'));
 app.use(paths.auth, require('./routes/auth'));
-app.use(paths.comment, require('./routes/comment'));
 
 app.listen(port, () => {
+    console.clear();
     console.log(`SERVER ON: http://localhost:${port}/`);
 });
