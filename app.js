@@ -10,8 +10,7 @@ app.use(cors());
 
 const paths = {
     users: '/api/users',
-    auth: "/api/auth",
-    comment: "/api/comment"
+    auth: "/api/auth"
 }
 
 dbConnection();

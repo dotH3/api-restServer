@@ -29,9 +29,11 @@ const UserSchema = Schema({
 
 //modifico el objeto user para que no devuelva los datos que no quiero que el usuario vea
 
-UserSchema.methods.toJSON = function(){
-    const {__v, password, ...user} = this.toObject();
-    return user;
-}
+UserSchema.methods.toJSON = function () {
+    const { __v, password, ...rest } = this.toObject()
+    return rest
+  }
 
-module.exports = model('User',UserSchema);
+const userModel = model('User',UserSchema);
+
+module.exports = userModel;

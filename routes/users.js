@@ -8,7 +8,7 @@ const { userPost } = require('../controllers/user');
 const router = Router();
 
 router.post('/',[
-    // validarJwt,
+    validarJwt,
     check('name','El nombre es obligatorio').notEmpty(),
     check('mail','El email es invalido').isEmail(),
     check('mail').custom(existMail),
