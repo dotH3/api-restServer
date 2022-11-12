@@ -5,7 +5,6 @@ const User = require("../models/user");
 const validarJwt = async (req, res = response, next) => {
   const token = req.header("token");
   if (!token) return res.status(401).json({ msg: "No hay toquen de autorizacion" });
-  
 
   try {
     const { data } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
@@ -14,7 +13,6 @@ const validarJwt = async (req, res = response, next) => {
     if (!user.status) return res.status(401).json({ msg: "Token no valido - usuario deshabilitado" });
 
     req.user = user;
-    console.log(req.user)
     next();
   } catch (error) {
     return res.status(401).json({

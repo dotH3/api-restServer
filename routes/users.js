@@ -1,9 +1,10 @@
 const {Router} = require('express');
-const { check } = require('express-validator');
+const { check, param } = require('express-validator');
 const validarCampos = require('../middlewares/validar-campos');
 const {existMail, exisUserForID} = require('../helpers/db-validators');
 const { validarJwt } = require('../middlewares/validar-jwt');
-const { userPost } = require('../controllers/user');
+const { userPost, userPut } = require('../controllers/user');
+const { userMatch } = require('../middlewares/userMath');
 
 const router = Router();
 
@@ -16,6 +17,13 @@ router.post('/',[
     validarCampos
 ],
 userPost);
+
+router.put('/:id',[
+    validarJwt,
+    param("id", "No es un ID valido").isMongoId(),
+    validarCampos,
+    userMatch,
+], userPut);
 
 module.exports = router;
 

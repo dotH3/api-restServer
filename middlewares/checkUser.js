@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user")
 
-
 const checkUser = async (req, res, next) => {
   const { mail, password } = req.body
 
@@ -16,4 +15,5 @@ const checkUser = async (req, res, next) => {
 
   next()
 }
+
 module.exports = checkUser
