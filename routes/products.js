@@ -8,6 +8,9 @@ const router = Router();
 
 router.post('/',[
   validarJwt,
+  check('name').notEmpty(),
+  check('price').notEmpty(),
+  check('stock').notEmpty(),
   validarCampos,
 ],productPost)
 

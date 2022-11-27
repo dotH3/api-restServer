@@ -19,6 +19,10 @@ const ProductSchema = Schema({
       type:Schema.Types.ObjectId,
       ref:"Category"
     },
+    stock:{
+      type:Number,
+      required:[true,'El stock el obligatorio']
+    },
     owner:{
       type:Schema.Types.ObjectId,
       ref:"User",
@@ -31,7 +35,7 @@ const ProductSchema = Schema({
 })
 
 ProductSchema.methods.toJSON = function () {
-    const { __v, password, ...rest } = this.toObject()
+    const { __v, ...rest } = this.toObject()
     return rest
   }
 
